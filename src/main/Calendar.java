@@ -43,9 +43,14 @@ public class Calendar {
         this.processDate = this.processDate.plusHours(1);
     }
     
+    public void nextDayForGenerateEmployee(){
+        
+    }
+    
     public void nextWeekDate(){
         this.processDate = this.processDate.plusWeeks(1);
     }
+    
         
     
     

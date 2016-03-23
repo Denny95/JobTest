@@ -17,6 +17,9 @@ public class Main {
         office.generateCalendar(mounth, year);
         
         office.doWork();
+        office.getCommands();
+        
+//        for(int i = 0; i<6; i++)
+//            System.out.println(office.comands[0 + (int) (Math.random() * 6)]);
     }
-    
 }
