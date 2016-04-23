@@ -4,7 +4,7 @@ package main;
 
 public class Commands {
     String command; //Название распоряжения
-    String performer = null; //Исполнитель этого распоряжения
+    String performer = "0"; //Исполнитель этого распоряжения
     String commandPriority;
     
     int hoursToDoComand = 0;  // Сотрудник(либо фрилансер) за 1 или 2 часа выполняет распоряжение

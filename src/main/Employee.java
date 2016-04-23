@@ -2,31 +2,44 @@
 package main;
 
 import main.Calendar;
+import main.EmployeeSchedule;
 
 public class Employee {
     
-    private final int maxWorkingHoursInDay = 8;
-    private final int maxWorkingHoursInWeek = 40;
     
     private int idEmployee;
     public String employeePost;
     public String employeePost2;
-    public String employeePost3;
-    int workingHoursInDay;
-    int workingHoursInWeek;
-    int allWorkingHours;
+//    public String employeePost3;
+    
+    public int salaryPost = 0;
+    
+    public int salaryGet = 0;
+            
+    public EmployeeSchedule shedule;
     
     boolean isBusy = false;
-    
-    private Calendar calendar;
+    boolean isWorking = false;
     
     Employee(){
         
     }
     
     Employee(int idEmployee, String postName){
-        this.employeePost = postName;
         this.idEmployee = idEmployee;
+        this.employeePost = postName;
+        
+        this.shedule = new EmployeeSchedule();
+        this.shedule.generateEmployeeShcedule();
+    }
+    
+     Employee(int idEmployee, String postName, int postSalary){
+        this.idEmployee = idEmployee;
+        this.employeePost = postName;
+        this.salaryPost = postSalary;
+        
+        this.shedule = new EmployeeSchedule();
+        this.shedule.generateEmployeeShcedule();
     }
     
     
@@ -34,11 +47,25 @@ public class Employee {
         this.idEmployee = idEmployee;
         this.employeePost = postName;
         this. employeePost2 = postName2;
+        
+        this.shedule = new EmployeeSchedule();
+        this.shedule.generateEmployeeShcedule();
     }
     
-    public void setEmployeePost2(String postName){
+     public void setEmployeePost2(String postName, int postSalary){
         this.employeePost2 = postName;
+        this.salaryPost = postSalary;
     }
+     
+//    public void setEmployeePost2(String postName){
+//        this.employeePost2 = postName;
+//    }
+    
+         
+//    public void setEmployeePost2(String postName, int postSalary){
+//        this.employeePost2 = postName;
+//        this.salaryPost2 = postSalary;
+//    }
     
     public int getIdEmployee(){
         return this.idEmployee;
@@ -48,43 +75,8 @@ public class Employee {
         return Integer.toString(this.idEmployee);
     }
     
-    public void generateWorkingSchedule(){ //сгенерировать рабочий график
-        workingHoursInWeek = maxWorkingHoursInWeek;
+    public void generateWorkStatus(){
         
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "MONDAY"){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
-        
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "TUESDAY"){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
-        
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "WEDNESDAY"){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
-        
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "THURSDAY"){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
-        
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "FRIDAY"){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
-        
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "SATURDAY" && workingHoursInWeek > 0){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
-        
-        if(calendar.getProcessDate().getDayOfWeek().toString() == "SUNDAY" && workingHoursInWeek > 0){
-            workingHoursInDay = 1 + (int) (Math.random() * maxWorkingHoursInDay);
-            workingHoursInWeek = workingHoursInWeek - workingHoursInDay;
-        }
     }
     
 }
